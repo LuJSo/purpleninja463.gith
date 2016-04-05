@@ -15,7 +15,7 @@ $(function () {
     
     var data = $(this).serializeArray(),
     email = data[0].value,
-    password = data[1].vale;
+    password = data[1].value;
     
     Backendless.UserService.login(email, password, true, new Backendless.Async(userLoggedIn, gotError));
    });
