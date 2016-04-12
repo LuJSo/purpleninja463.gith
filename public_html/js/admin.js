@@ -68,7 +68,7 @@ function Posts(args){
 function userLoggedIn(user) {
     console.log("user succsessfully logged in");
     var userData;
-    if (typeof user == "string"){
+    if (typeof user === "string"){
         userData = Backendless.Data.of(Backendless.User).findById(user);
     } else {
         userData = user;
