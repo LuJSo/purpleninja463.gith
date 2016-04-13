@@ -35,6 +35,9 @@ $(function () {
            title = data[0].value,
            content = data[1].value;
            
+           Materialize.toast('Submit successful', 2000)
+        
+           
        var dataStore = Backendless.Persistence.of(Posts);
        
        var postObject = new Posts({
@@ -51,6 +54,8 @@ $(function () {
    
    $(document).on('click', '.logout', function (){
       Backendless.UserService.logout(new Backendless.Async(userLoggedOut, gotError)); 
+      
+      Materialize.toast('Logout Successful', 2000)
       
       var loginScript = $("#login-template").html();
          var loginTemplate = Handlebars.compile(loginScript);
@@ -84,6 +89,7 @@ function userLoggedOut(){
 }
 
 function gotError(error) {
+    Materialize.toast('Login failed', 2000)
     console.log("Error message - " + error.message);
     console.log("Error code - " + error.code);
 }
